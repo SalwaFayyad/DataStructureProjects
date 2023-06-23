@@ -1,0 +1,14 @@
+--------------------------------------------------DOUBLE HASH FILE---------------------------------------------
+
+
+0] Data structures    COMP2421      
+1] --------
+2] --------
+3] --------
+4] --------
+5] Introduction to Japam    JPN123      
+6] Introduction to Arabic    ARB135      
+7] Data base    COMP333      
+8] ZZZZ    1      
+9] Introduction to Turkish    TURK112      
+10] Introduction to programming    COMP133      
