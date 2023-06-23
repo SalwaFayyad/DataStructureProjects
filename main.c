@@ -35,12 +35,44 @@ void creategraph(int x, int y, int distance, char from[], char to[], struct edge
 
 
 }
+const char* cityName(int x) {
+    if (x ==1)
+        return "Akka";
+    if (x==2)
+        return "Bethlehem";
+    if (x==3)
+        return "Haifa";
+    if (x == 4)
+        return "Hebron";
+    if (x == 5)
+        return "Jenin";
+    if (x == 6)
+        return "Jericho";
+    if (x==7)
+        return "Jerusalem";
+    if (x == 8)
+        return "Nablus";
+    if (x == 9)
+        return "Nazareth";
+    if (x == 10)
+        return "Qalqilya";
+    if (x == 11)
+        return "Ramallah";
+    if (x == 12)
+        return "Salfit";
+    if (x == 13)
+        return "Tubas";
+    if (x == 14)
+        return "Tulkarem";
+    if (x == 15)
+        return "Yafa";
+}
+
 
 
 // This Function to find index of the city to make easier to make the array
 int city(char from[]) {
     int x;
-
     //setting the index of eac city a variable
     if (strcmp("Akka", from) == 0)
         x = 1;
@@ -160,10 +192,7 @@ void Dijkstra(struct edge *dest[m], int start, int end) {
             }
         }
     }
-
-
-
-    printf("\nThe Short path distance from %d to %d  with cost :%d ->", start, end, dest[end]->distance);
+    printf("\nThe Shortest path distance from %s to %s  with cost :%d ->\n", cityName(start), cityName(end), dest[end]->distance);
     printS(dest, start, end);
 
 }
@@ -215,8 +244,9 @@ int main() {
                     fflush(stdin);
                     gets(from);
                     int start = city(from);
+                    printf(" city = %s\n", cityName(start));
                     for(int i=1;i<start;i++)
-                    Dijkstra(dest, start, i);
+                        Dijkstra(dest, start, i);
 
                     for(int i=(start+1);i<=15;i++)
                         Dijkstra(dest, start, i);
@@ -244,7 +274,7 @@ int main() {
                     gets(to);
                     start = city(from); // the start point
                     end = city(to); // end point
-                    printf("%d   %d  \n", start, end);
+                    printf("%s   %s  \n", cityName(start), cityName(end));
                     Dijkstra(dest, start, end);
 
                 }
@@ -253,7 +283,7 @@ int main() {
 
             case 4:
                 out = fopen("shortest_path.txt", "w");
-                fprintf(out, "The Short path distance from start %d to end %d with cost %d:", start, end,
+                fprintf(out, "The Short path distance from start %s to end %s with cost %d:", cityName(start), cityName(end),
                         dest[end]->distance);
                 printf("CHECK THE OUTPUT FILE!!!!!!\n");
                 fclose(out);
